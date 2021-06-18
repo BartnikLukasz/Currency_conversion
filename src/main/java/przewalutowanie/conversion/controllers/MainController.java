@@ -18,7 +18,7 @@ public class MainController {
     public String conversion(@RequestParam String currencyFromCode, @RequestParam String currencyToCode, @RequestParam double currencyFromValue){
 
         if(conversionService.validate(currencyFromCode, currencyToCode, currencyFromValue)) {
-            return conversionService.convert(currencyFromCode, currencyToCode, currencyFromValue);
+            return conversionService.convert(currencyFromCode, currencyToCode, currencyFromValue).toString();
         }else{
             return "This currency cannot be converted or value is less then 0";
         }
